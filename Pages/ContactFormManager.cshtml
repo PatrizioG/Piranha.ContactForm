@@ -1,0 +1,11 @@
+﻿@page "~/manager/contactform"
+@model Piranha.ContactForm.Pages.ContactFormManagerModel
+@{
+    Layout = "~/Areas/Manager/Shared/_Layout.cshtml";
+}
+
+<h5>Contact Form</h5>
+@foreach(var contact in Model.Contacts)
+{
+    @contact.DateTime.ToLongDateString(); @contact.Email; @contact.Message;<br />
+}

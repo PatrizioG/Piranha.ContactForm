@@ -1,11 +1,8 @@
-﻿using Piranha.Extend;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Piranha.Manager;
 
 namespace Piranha.ContactForm
 {
-    public class Module : IModule
+    public class Module : Piranha.Extend.IModule
     {
         public string Author => "Gasperi Patrizio";
 
@@ -21,7 +18,14 @@ namespace Piranha.ContactForm
 
         public void Init()
         {
-
+            Menu.Items["Settings"].Items.Add(new MenuItem
+            {
+                InternalId = "ContactForm",
+                Name = "Contact Form",
+                Route = "~/manager/contactform",
+                Css = "fab fa-wpforms",
+                Policy = Permission.Config
+            });
         }
     }
 }
